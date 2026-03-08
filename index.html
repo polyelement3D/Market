@@ -27,7 +27,7 @@
             background-image: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
         }
 
-        /* --- EFFECTS & ANIMATIONS --- */
+       
         .glow-cursor {
             position: fixed;
             width: 400px; height: 400px;
@@ -52,7 +52,7 @@
             100% { text-shadow: 2px 2px var(--pink); }
         }
 
-        /* --- UI COMPONENTS --- */
+       
         .glass-nav {
             background: rgba(0,0,0,0.7) !important;
             backdrop-filter: blur(15px);
@@ -97,7 +97,7 @@
             transform: scale(1.05); color: white;
         }
 
-        /* --- CART MODAL --- */
+        
         .modal-content {
             background: #0a0a0a; border: 1px solid var(--neon);
             border-radius: 30px; color: white;
@@ -156,10 +156,10 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Apply your Real Publishable Key
+       
         const stripe = Stripe('pk_test_51T8egQIbBH5Ek7fOIUMkuPg8ZBzSIngBkxQTJuxAUxb66TteiyU6DRcCShn0LhRkhGvbPyZkwmbANgDXFYg46JFj00D0KPBafw');
         
-        // Mouse follow effect
+        
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -233,17 +233,17 @@
 
         function removeItem(idx) { cart.splice(idx, 1); updateCartUI(); }
 
-        // --- REAL STRIPE CHECKOUT ---
+        
         document.getElementById('real-checkout-btn').addEventListener('click', async () => {
             if (cart.length === 0) return alert("Add items to your order first.");
 
-            // Convert our cart into Stripe's format
+          
             const stripeItems = cart.map(item => ({
                 price: item.priceId, 
                 quantity: item.qty
             }));
 
-            // Redirect to Stripe's secure payment page
+           
             const { error } = await stripe.redirectToCheckout({
                 lineItems: stripeItems,
                 mode: 'payment',
