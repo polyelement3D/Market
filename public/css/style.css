@@ -1,0 +1,18 @@
+/* Custom styles will go here */
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    height: 100%;
+}
+
+.footer {
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: #e9ecef;
+}

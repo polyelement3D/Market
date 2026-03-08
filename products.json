@@ -1,14 +1,44 @@
 [
   {
     "id": 1,
-    "name": "Infinity Cube",
-    "price": 5,
-    "description": "A mesmerizing infinity cube to keep your hands busy."
+    "name": "Infinity Cube Fidget",
+    "price": 12.50,
+    "description": "A mesmerizing fidget toy that endlessly folds into itself. Perfect for keeping your hands busy and your mind focused.",
+    "image": "https://placehold.co/600x400/3498db/ffffff?text=Infinity+Cube"
   },
   {
     "id": 2,
-    "name": "Spiral Fidget",
-    "price": 4.5,
-    "description": "A spiral fidget toy for endless fun."
+    "name": "Customizable Name Tag",
+    "price": 8.00,
+    "description": "A personalized name tag for your desk, backpack, or keys. Enter your name and choose your color!",
+    "image": "https://placehold.co/600x400/2ecc71/ffffff?text=Name+Tag"
+  },
+  {
+    "id": 3,
+    "name": "Spinning Gyroscope",
+    "price": 15.00,
+    "description": "A high-precision, long-spinning gyroscope that demonstrates principles of physics while being incredibly satisfying to use.",
+    "image": "https://placehold.co/600x400/9b59b6/ffffff?text=Gyroscope"
+  },
+  {
+    "id": 4,
+    "name": "Modern Bird Feeder",
+    "price": 25.00,
+    "description": "A sleek and durable 3D printed bird feeder. Attract beautiful birds to your yard with this modern design.",
+    "image": "https://placehold.co/600x400/f1c40f/ffffff?text=Bird+Feeder"
+  },
+  {
+    "id": 5,
+    "name": "Personalized Pet Bowl",
+    "price": 18.00,
+    "description": "A custom 3D printed bowl with your pet's name. Available in multiple sizes and colors.",
+    "image": "https://placehold.co/600x400/e67e22/ffffff?text=Pet+Bowl"
+  },
+  {
+    "id": 6,
+    "name": "Articulated Flexi-Rex",
+    "price": 10.00,
+    "description": "A fun and flexible T-Rex dinosaur that can be posed in countless ways. A great desk toy or gift.",
+    "image": "https://placehold.co/600x400/e74c3c/ffffff?text=Flexi-Rex"
   }
 ]

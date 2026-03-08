@@ -1,19 +1,28 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(express.json());
-
-// Sample product data
-const products = [
-    { id: 1, name: 'Infinity Cube', price: 5 },
-    { id: 2, name: 'Spiral Fidget', price: 4.5 }
-];
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
 app.get('/api/products', (req, res) => {
-    res.json(products);
+    const productsPath = path.join(__dirname, '..', 'products.json');
+    fs.readFile(productsPath, 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ message: 'Error reading products data' });
+        }
+        res.json(JSON.parse(data));
+    });
+});
+
+// Serve the main HTML file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // Start server
