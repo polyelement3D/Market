@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Infinity Cube",
+    "price": 5,
+    "description": "A mesmerizing infinity cube to keep your hands busy."
+  },
+  {
+    "id": 2,
+    "name": "Spiral Fidget",
+    "price": 4.5,
+    "description": "A spiral fidget toy for endless fun."
+  }
+]

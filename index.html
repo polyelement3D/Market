@@ -70,21 +70,73 @@
         <h1>PolyElement3D Market</h1>
     </header>
     <div class="container">
-        <div class="product">
-            <h2>Infinity Cube</h2>
-            <p>$5</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <h2>Spiral Fidget</h2>
-            <p>$4.50</p>
-            <button>Add to Cart</button>
-        </div>
+        <div id="products"></div>
         <div class="cart">
             <h2>Shopping Cart</h2>
-            <p>No items in cart.</p>
-            <button class="checkout">Checkout</button>
+            <ul id="cart-items"></ul>
+            <p id="cart-total">Total: $0</p>
+            <button class="checkout" id="checkout">Checkout</button>
         </div>
     </div>
+    <script>
+        const productsContainer = document.getElementById('products');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutButton = document.getElementById('checkout');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Fetch products from JSON file
+        fetch('products.json')
+            .then(response => response.json())
+            .then(products => {
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('product');
+                    productDiv.innerHTML = `
+                        <h2>${product.name}</h2>
+                        <p>$${product.price}</p>
+                        <p>${product.description}</p>
+                        <button onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Add to Cart</button>
+                    `;
+                    productsContainer.appendChild(productDiv);
+                });
+            });
+
+        // Add to cart
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        // Update cart display
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                cartItemsContainer.appendChild(li);
+            });
+            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Checkout
+        checkoutButton.addEventListener('click', () => {
+            alert('Thank you for your purchase!');
+            cart = [];
+            updateCart();
+        });
+
+        // Initialize cart display
+        updateCart();
+    </script>
 </body>
 </html>
