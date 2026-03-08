@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Fetch products from the API
-    fetch('/api/products')
+    fetch('products.json')
         .then(response => response.json())
         .then(products => {
             productsContainer.innerHTML = ''; // Clear existing content
