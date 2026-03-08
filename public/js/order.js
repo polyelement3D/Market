@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const orderDetailsContainer = document.getElementById('order-details');
 
-    // Get order ID from URL
+
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('id');
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Get orders from localStorage
+   
     const orders = JSON.parse(localStorage.getItem('orders')) || [];
     const order = orders.find(o => o.id === orderId);
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Render the order details
+
     let itemsHtml = '';
     order.items.forEach(item => {
         itemsHtml += `

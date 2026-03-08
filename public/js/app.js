@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Fetch products from the API
+
     fetch('products.json')
         .then(response => response.json())
         .then(products => {
-            productsContainer.innerHTML = ''; // Clear existing content
+            productsContainer.innerHTML = ''; 
             products.forEach(product => {
                 const productDiv = document.createElement('div');
                 productDiv.classList.add('col-md-4', 'mb-4');
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             productsContainer.innerHTML = '<p class="text-danger">Could not load products. Please try again later.</p>';
         });
 
-    // Make addToCart global
+  
     window.addToCart = function(id, name, price) {
         const existingItem = cart.find(item => item.id === id);
         if (existingItem) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     }
 
-    // Update cart display
+    
     function updateCart() {
         cartItemsContainer.innerHTML = '';
         let total = 0;
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    // Checkout
+
     checkoutButton.addEventListener('click', () => {
         if(cart.length > 0) {
             alert('Thank you for your purchase!');
@@ -80,6 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initialize cart display on page load
+  
     updateCart();
 });
